@@ -1,0 +1,1896 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>For Farisha Farhana (05.11)</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        cinzel: ['Cinzel', 'serif'],
+                        serif: ['Cormorant Garamond', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        pastelblue: '#b8d8f8',
+                        royalnavy: '#0d1b2a',
+                        deepvault: '#07101a',
+                        rosegold: '#e5b887',
+                        champagne: '#f4d068',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * {
+            user-select: none;
+            -webkit-user-select: none;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: radial-gradient(circle at 50% 35%, #162f4c 0%, #0b1929 55%, #050b12 100%);
+            color: #f8fafc;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        /* Cinematic Letterbox Bars */
+        .letterbox-bar {
+            position: fixed;
+            left: 0;
+            width: 100%;
+            background: #03070c;
+            z-index: 40;
+            transition: height 1s cubic-bezier(0.22, 1, 0.36, 1);
+            box-shadow: 0 0 35px rgba(0, 0, 0, 0.95);
+        }
+        .letterbox-top { top: 0; height: 5.5vh; border-bottom: 1px solid rgba(184, 216, 248, 0.2); }
+        .letterbox-bottom { bottom: 0; height: 5.5vh; border-top: 1px solid rgba(229, 184, 135, 0.2); }
+
+        /* Brushed Rose Gold & Obsidian Glass Vault Panels */
+        .vault-frame {
+            background: linear-gradient(145deg, rgba(16, 33, 52, 0.88), rgba(8, 18, 30, 0.94));
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1.5px solid rgba(229, 184, 135, 0.45);
+            box-shadow: 
+                0 25px 60px rgba(0, 0, 0, 0.85),
+                0 0 40px rgba(184, 216, 248, 0.12),
+                inset 0 1px 2px rgba(255, 255, 255, 0.2),
+                inset 0 0 25px rgba(229, 184, 135, 0.08);
+        }
+
+        .rosegold-metallic {
+            background: linear-gradient(135deg, #f7dfc4 0%, #e5b887 45%, #c58b56 100%);
+            color: #09131e;
+            box-shadow: 0 0 25px rgba(229, 184, 135, 0.45), inset 0 1px 2px rgba(255, 255, 255, 0.8);
+        }
+
+        .pastelblue-glow {
+            text-shadow: 0 0 18px rgba(184, 216, 248, 0.75), 0 0 35px rgba(184, 216, 248, 0.35);
+        }
+
+        .gold-glow {
+            text-shadow: 0 0 18px rgba(244, 208, 104, 0.7), 0 0 35px rgba(229, 184, 135, 0.4);
+        }
+
+        /* Clockwork Gears Animation */
+        @keyframes spinClockwise {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        @keyframes spinCounter {
+            from { transform: rotate(360deg); }
+            to { transform: rotate(0deg); }
+        }
+        .gear-cw { animation: spinClockwise 28s linear infinite; }
+        .gear-ccw { animation: spinCounter 22s linear infinite; }
+        .gear-fast { animation: spinClockwise 6s linear infinite; }
+
+        /* Scanner Laser Animation */
+        @keyframes scanLaser {
+            0%, 100% { top: 8%; opacity: 0.9; }
+            50% { top: 88%; opacity: 1; }
+        }
+        .scanner-beam {
+            animation: scanLaser 1.4s ease-in-out infinite;
+        }
+
+        /* Camera Shake for Bolt Retraction */
+        @keyframes vaultShake {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            15% { transform: translate(-6px, 4px) scale(1.012); }
+            35% { transform: translate(6px, -4px) scale(1.015); }
+            55% { transform: translate(-4px, -3px) scale(1.008); }
+            75% { transform: translate(4px, 3px) scale(1.004); }
+        }
+        .shake-vault {
+            animation: vaultShake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+        }
+
+        /* Candle Flicker */
+        @keyframes flameFlicker {
+            0%, 100% { transform: scale(1) rotate(-1deg); }
+            50% { transform: scale(1.08, 0.94) rotate(2deg); }
+        }
+        .candle-flame {
+            animation: flameFlicker 1.2s infinite ease-in-out;
+            transform-origin: bottom center;
+        }
+
+        /* Custom Scrollbar */
+        .custom-scroll::-webkit-scrollbar { width: 6px; }
+        .custom-scroll::-webkit-scrollbar-track { background: rgba(7, 16, 26, 0.6); }
+        .custom-scroll::-webkit-scrollbar-thumb { background: rgba(229, 184, 135, 0.45); border-radius: 9999px; }
+
+        /* Corner Rivets */
+        .rivet {
+            width: 8px;
+            height: 8px;
+            border-radius: 9999px;
+            background: radial-gradient(circle at 30% 30%, #fff, #c58b56);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.8);
+        }
+    </style>
+</head>
+<body id="app-body" class="relative select-none overflow-hidden">
+
+    <!-- Background Starlight & Steam Particle Canvas -->
+    <canvas id="vault-canvas" class="fixed inset-0 w-full h-full z-0 pointer-events-none"></canvas>
+
+    <!-- Decorative Spinning Clockwork Gears in Background -->
+    <div class="fixed inset-0 pointer-events-none z-0 flex items-center justify-center opacity-15 overflow-hidden">
+        <i id="bg-gear-1" class="fa-solid fa-gear text-[340px] sm:text-[480px] text-pastelblue gear-cw absolute -left-24 -top-20"></i>
+        <i id="bg-gear-2" class="fa-solid fa-cog text-[280px] sm:text-[400px] text-rosegold gear-ccw absolute -right-20 -bottom-16"></i>
+    </div>
+
+    <!-- Top Letterbox Bar with Live 05/11 Midnight Countdown -->
+    <div class="letterbox-bar letterbox-top flex items-center justify-between px-4 sm:px-8">
+        <div class="flex items-center gap-2.5 text-[10px] sm:text-xs tracking-[0.22em] text-pastelblue font-cinzel uppercase">
+            <span class="w-2 h-2 rounded-full bg-amber-300 animate-ping"></span>
+            <span id="vault-status-header">SECURITY LEVEL 05</span>
+        </div>
+
+        <!-- Live Midnight Countdown to 05/11 -->
+        <div class="flex items-center gap-2 text-[11px] sm:text-xs font-mono tracking-wider text-amber-200 bg-slate-900/80 px-3 py-0.5 rounded-full border border-rosegold/30">
+            <i class="fa-regular fa-clock text-pastelblue"></i>
+            <span id="midnight-countdown-text">05.11 COUNTDOWN: 00:00:00</span>
+        </div>
+    </div>
+
+    <!-- Bottom Letterbox Bar -->
+    <div class="letterbox-bar letterbox-bottom flex items-center justify-between px-4 sm:px-8">
+        <div class="text-[10px] sm:text-xs tracking-[0.18em] text-pastelblue/70 font-mono">
+            SUBJECT: <span class="text-amber-200 font-semibold recipient-name-display">FARISHA FARHANA (COOKIES 💕)</span>
+        </div>
+        <div class="text-[10px] sm:text-xs tracking-[0.2em] text-rosegold/80 font-cinzel uppercase hidden sm:block">
+            <!--ROYAL EDITION • 05 NOVEMBER-->
+        </div>
+    </div>
+
+    <!-- Top Floating HUD Controls -->
+    <div class="fixed top-[6.8vh] left-3 right-3 sm:left-6 sm:right-6 z-40 flex items-center justify-between pointer-events-none">
+        <!-- Left: Quick Stage Jump Pills -->
+        <div class="flex items-center gap-1.5 pointer-events-auto">
+            <!-- This is a single-line comment 
+            <button onclick="toggleDirectorModal()" class="vault-frame px-3.5 py-2 rounded-full text-xs text-amber-200 hover:text-white hover:border-amber-300 transition-all flex items-center gap-2 shadow-lg">
+                <i class="fa-solid fa-sliders text-pastelblue"></i>
+                <span class="hidden sm:inline font-medium">Director's Studio</span>
+            </button>
+            -->
+
+            <!--
+            <div class="vault-frame px-2 py-1 rounded-full hidden lg:flex items-center gap-1 text-[11px] font-mono">
+                <button onclick="jumpToLock(5)" id="nav-lock-5" class="px-2.5 py-1 rounded-full bg-amber-400/20 text-amber-200 font-bold">L05</button>
+                <button onclick="jumpToLock(4)" id="nav-lock-4" class="px-2.5 py-1 rounded-full text-slate-400 hover:text-white">L04</button>
+                <button onclick="jumpToLock(3)" id="nav-lock-3" class="px-2.5 py-1 rounded-full text-slate-400 hover:text-white">L03</button>
+                <button onclick="jumpToLock(2)" id="nav-lock-2" class="px-2.5 py-1 rounded-full text-slate-400 hover:text-white">L02</button>
+                <button onclick="jumpToLock(1)" id="nav-lock-1" class="px-2.5 py-1 rounded-full text-slate-400 hover:text-white">L01</button>
+                <button onclick="openGrandVault()" id="nav-lock-0" class="px-2.5 py-1 rounded-full text-pastelblue hover:text-white">VAULT</button>
+            </div>
+            -->
+        </div>
+
+        <!-- Right: Audio Mute Toggle -->
+        <div class="flex items-center gap-2 pointer-events-auto">
+            <button onclick="toggleAudio()" class="vault-frame w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-amber-200 hover:scale-105 transition-all" title="Toggle Vault Sound Effects">
+                <i id="audio-icon" class="fa-solid fa-volume-high text-sm"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- =================================================================
+         MAIN CONTAINER: THE ESCAPE-ROOM PUZZLE BOX & GRAND FINALE VAULT
+         ================================================================= -->
+    <main class="relative z-20 w-full h-full flex items-center justify-center px-3 sm:px-6 py-14">
+
+        <!-- =============================================================
+             VIEW 1: THE 5-LOCK MECHANICAL PUZZLE BOX
+             ============================================================= -->
+        <section id="puzzle-box-view" class="w-full max-w-4xl flex flex-col items-center justify-center transition-all duration-700">
+            
+            <!-- Vault Header Title -->
+            <div class="text-center mb-3 sm:mb-4">
+                <!--
+                <div class="inline-flex items-center gap-2 px-3.5 py-0.5 rounded-full bg-pastelblue/10 border border-pastelblue/30 text-pastelblue text-[10px] sm:text-xs uppercase tracking-[0.25em] font-cinzel mb-1">
+                    
+                    <i class="fa-solid fa-shield-halved text-amber-300"></i>
+                    <span>Time-Capsule Puzzle Box • 05.11</span>
+                
+                </div>
+                -->
+                <h1 class="font-cinzel text-xl sm:text-3xl md:text-4xl font-extrabold text-white gold-glow tracking-wider">
+                    <!--
+                    THE ROYAL CHRONOS VAULT
+                    -->
+                </h1>
+            </div>
+
+            <!-- 5 Mechanical Bolts Status Bar -->
+            <div class="grid grid-cols-5 gap-2 sm:gap-3 w-full max-w-xl mb-4">
+                <!-- Bolt 05 -->
+                <div id="bolt-card-5" class="vault-frame px-2 py-2 rounded-xl flex flex-col items-center border border-amber-300/60 transition-all">
+                    <div class="flex items-center gap-1 text-[10px] font-mono text-amber-200">
+                        <i id="bolt-icon-5" class="fa-solid fa-lock text-rose-400"></i>
+                        <span>BOLT 05</span>
+                    </div>
+                    <span class="text-[9px] text-slate-400 uppercase tracking-wider mt-0.5 hidden sm:inline">Biometrics</span>
+                </div>
+                <!-- Bolt 04 -->
+                <div id="bolt-card-4" class="vault-frame px-2 py-2 rounded-xl flex flex-col items-center opacity-60 transition-all">
+                    <div class="flex items-center gap-1 text-[10px] font-mono text-slate-300">
+                        <i id="bolt-icon-4" class="fa-solid fa-lock text-slate-400"></i>
+                        <span>BOLT 04</span>
+                    </div>
+                    <span class="text-[9px] text-slate-400 uppercase tracking-wider mt-0.5 hidden sm:inline">05.11 Dial</span>
+                </div>
+                <!-- Bolt 03 -->
+                <div id="bolt-card-3" class="vault-frame px-2 py-2 rounded-xl flex flex-col items-center opacity-60 transition-all">
+                    <div class="flex items-center gap-1 text-[10px] font-mono text-slate-300">
+                        <i id="bolt-icon-3" class="fa-solid fa-lock text-slate-400"></i>
+                        <span>BOLT 03</span>
+                    </div>
+                    <span class="text-[9px] text-slate-400 uppercase tracking-wider mt-0.5 hidden sm:inline">Harmony</span>
+                </div>
+                <!-- Bolt 02 -->
+                <div id="bolt-card-2" class="vault-frame px-2 py-2 rounded-xl flex flex-col items-center opacity-60 transition-all">
+                    <div class="flex items-center gap-1 text-[10px] font-mono text-slate-300">
+                        <i id="bolt-icon-2" class="fa-solid fa-lock text-slate-400"></i>
+                        <span>BOLT 02</span>
+                    </div>
+                    <span class="text-[9px] text-slate-400 uppercase tracking-wider mt-0.5 hidden sm:inline">Pujuk Code</span>
+                </div>
+                <!-- Bolt 01 -->
+                <div id="bolt-card-1" class="vault-frame px-2 py-2 rounded-xl flex flex-col items-center opacity-60 transition-all">
+                    <div class="flex items-center gap-1 text-[10px] font-mono text-slate-300">
+                        <i id="bolt-icon-1" class="fa-solid fa-lock text-slate-400"></i>
+                        <span>BOLT 01</span>
+                    </div>
+                    <span class="text-[9px] text-slate-400 uppercase tracking-wider mt-0.5 hidden sm:inline">Wish Key</span>
+                </div>
+            </div>
+
+            <!-- MAIN PUZZLE BOX CHASSIS -->
+            <div class="vault-frame w-full rounded-3xl p-4 sm:p-7 relative overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                <!-- Decorative Corner Rivets -->
+                <div class="rivet absolute top-3 left-3"></div>
+                <div class="rivet absolute top-3 right-3"></div>
+                <div class="rivet absolute bottom-3 left-3"></div>
+                <div class="rivet absolute bottom-3 right-3"></div>
+
+                <!-- LEFT 7 COLUMNS: ACTIVE MICRO-PUZZLE MODULE -->
+                <div class="lg:col-span-7 flex flex-col justify-center min-h-[290px] sm:min-h-[320px] bg-slate-950/65 rounded-2xl p-4 sm:p-6 border border-pastelblue/20 relative">
+
+                    <!-- LOCK 05: BIOMETRIC HEARTBEAT & "BEST GF" SCANNER -->
+                    <div id="puzzle-module-5" class="flex flex-col items-center text-center w-full">
+                        <div class="text-[11px] font-mono uppercase tracking-[0.2em] text-pastelblue mb-1">
+                            <i class="fa-solid fa-fingerprint text-amber-300 mr-1"></i>SECURITY LOCK 05 // BIOMETRIC VERIFICATION
+                        </div>
+                        <h2 class="font-cinzel text-lg sm:text-xl font-bold text-white mb-1">
+                            Birthday Princess & "Best GF" Truth Scanner
+                        </h2>
+                        <p class="text-xs text-slate-300 max-w-md mb-4">
+                            Press and hold the biometric pad below to verify your identity and fact-check what you said on TikTok earlier.
+                        </p>
+
+                        <!-- Interactive Fingerprint / Heart Pad -->
+                        <div class="relative flex items-center justify-center my-1">
+                            <button id="bio-scan-pad"
+                                onmousedown="startBiometricScan()"
+                                onmouseup="stopBiometricScan()"
+                                onmouseleave="stopBiometricScan()"
+                                ontouchstart="startBiometricScan(event)"
+                                ontouchend="stopBiometricScan()"
+                                class="relative w-24 h-28 sm:w-28 sm:h-32 rounded-2xl bg-slate-900/90 border-2 border-pastelblue/50 hover:border-amber-300 flex flex-col items-center justify-center overflow-hidden shadow-[0_0_30px_rgba(184,216,248,0.2)] transition-all active:scale-95 cursor-pointer group">
+                                
+                                <!-- Sweeping Laser Beam -->
+                                <div id="bio-laser-line" class="hidden scanner-beam absolute left-0 right-0 h-1 bg-gradient-to-r from-transparent via-amber-300 to-transparent shadow-[0_0_12px_#f4d068]"></div>
+                                
+                                <i id="bio-icon" class="fa-solid fa-fingerprint text-4xl sm:text-5xl text-pastelblue group-hover:text-amber-200 transition-colors"></i>
+                                <span id="bio-pad-label" class="text-[9px] font-mono uppercase tracking-widest text-slate-300 mt-2">HOLD TO SCAN</span>
+                            </button>
+                        </div>
+
+                        <!-- Progress Bar -->
+                        <div class="w-full max-w-xs h-2 bg-slate-900 rounded-full overflow-hidden border border-pastelblue/20 mt-3 mb-2">
+                            <div id="bio-progress-fill" class="h-full bg-gradient-to-r from-pastelblue via-amber-300 to-rose-400 transition-all duration-100" style="width: 0%"></div>
+                        </div>
+
+                        <!-- Live Telemetry Log Box -->
+                        <div id="bio-telemetry-box" class="w-full bg-slate-900/90 border border-pastelblue/20 rounded-xl p-2.5 text-left font-mono text-[11px] text-pastelblue min-h-[58px] flex flex-col justify-center">
+                            <p id="bio-log-line-1" class="text-slate-400">&gt; Waiting for Farisha Farhana's thumbprint...</p>
+                            <p id="bio-log-line-2" class="text-amber-200 font-semibold mt-0.5"></p>
+                        </div>
+                    </div>
+
+                    <!-- LOCK 04: THE 05 • 11 CHRONOS DATE CRYPTEX -->
+                    <div id="puzzle-module-4" class="hidden flex-col items-center text-center w-full">
+                        <div class="text-[11px] font-mono uppercase tracking-[0.2em] text-pastelblue mb-1">
+                            <i class="fa-solid fa-compass text-amber-300 mr-1"></i>SECURITY LOCK 04
+                        </div>
+                        <h2 class="font-cinzel text-lg sm:text-xl font-bold text-white mb-1">
+                            The Day The World Got Brighter
+                        </h2>
+                        <p class="text-xs text-slate-300 max-w-md mb-4">
+                            Align the brass cryptex dials to <span class="text-amber-200 font-semibold">Her Special Birthday Date (DD / MM)</span> to unlock Bolt 04.
+                        </p>
+
+                        <!-- Cryptex Rotary Wheels (DD / MM) -->
+                        <div class="flex items-center justify-center gap-3 sm:gap-5 my-2">
+                            <!-- Day Wheel (Target: 05) -->
+                            <div class="flex flex-col items-center bg-slate-900/90 border-2 border-rosegold/50 rounded-2xl p-2.5 w-24 sm:w-28 shadow-inner">
+                                <span class="text-[9px] font-mono uppercase tracking-widest text-pastelblue mb-1">DAY (DD)</span>
+                                <button onclick="adjustCryptex('day', 1)" class="w-full py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-amber-200 text-xs">
+                                    <i class="fa-solid fa-chevron-up"></i>
+                                </button>
+                                <div id="cryptex-day-val" class="font-cinzel text-3xl sm:text-4xl font-extrabold text-white gold-glow my-2">
+                                    01
+                                </div>
+                                <button onclick="adjustCryptex('day', -1)" class="w-full py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-amber-200 text-xs">
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </button>
+                            </div>
+
+                            <div class="font-cinzel text-2xl sm:text-3xl text-rosegold font-bold">/</div>
+
+                            <!-- Month Wheel (Target: 11) -->
+                            <div class="flex flex-col items-center bg-slate-900/90 border-2 border-rosegold/50 rounded-2xl p-2.5 w-24 sm:w-28 shadow-inner">
+                                <span class="text-[9px] font-mono uppercase tracking-widest text-pastelblue mb-1">MONTH (MM)</span>
+                                <button onclick="adjustCryptex('month', 1)" class="w-full py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-amber-200 text-xs">
+                                    <i class="fa-solid fa-chevron-up"></i>
+                                </button>
+                                <div id="cryptex-month-val" class="font-cinzel text-3xl sm:text-4xl font-extrabold text-white gold-glow my-2">
+                                    08
+                                </div>
+                                <button onclick="adjustCryptex('month', -1)" class="w-full py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-amber-200 text-xs">
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <p id="cryptex-feedback" class="text-xs font-mono text-amber-200 mt-3">
+                            Hint: 05 / 11 — Tap the arrows until the gears lock into place!
+                        </p>
+                    </div>
+
+                    <!-- LOCK 03: HARMONIC VIBE TUNER -->
+                    <div id="puzzle-module-3" class="hidden flex-col items-center text-center w-full">
+                        <div class="text-[11px] font-mono uppercase tracking-[0.2em] text-pastelblue mb-1">
+                            <i class="fa-solid fa-wave-square text-amber-300 mr-1"></i>SECURITY LOCK 03
+                        </div>
+                        <h2 class="font-cinzel text-lg sm:text-xl font-bold text-white mb-1">
+                            Syncing Our Frequency
+                        </h2>
+                        <p class="text-xs text-slate-300 max-w-md mb-3">
+                            Slide the rose-gold tuner until our two waves align—turning exam stress & arguments into calm reassurance.
+                        </p>
+
+                        <!-- Interactive Oscilloscope Canvas -->
+                        <div class="w-full bg-slate-900/95 border border-pastelblue/30 rounded-2xl p-2 mb-3 relative overflow-hidden">
+                            <canvas id="wave-canvas" width="420" height="100" class="w-full h-24 block"></canvas>
+                            <div class="flex justify-between text-[10px] font-mono px-2 text-slate-400">
+                                <span>TARGET: CALM & STEADY LOVE</span>
+                                <span id="wave-sync-pct" class="text-amber-300 font-bold">SYNC: 25%</span>
+                            </div>
+                        </div>
+
+                        <!-- Frequency Slider -->
+                        <div class="w-full max-w-sm flex items-center gap-3 px-2">
+                            <i class="fa-solid fa-tower-broadcast text-pastelblue text-sm"></i>
+                            <input id="harmonic-slider" type="range" min="0" max="100" value="18" oninput="updateHarmonicTuner(this.value)" class="w-full accent-amber-300 cursor-pointer h-2 bg-slate-800 rounded-lg">
+                            <i class="fa-solid fa-heart text-rose-400 text-sm"></i>
+                        </div>
+
+                        <p id="harmonic-status-msg" class="text-xs font-serif italic text-pastelblue mt-3 min-h-[20px]">
+                            Slide slowly toward the sweet spot (around 75-85) to lock our wave...
+                        </p>
+                    </div>
+
+                    <!-- LOCK 02: THE INSIDE-MEMORY CIPHER -->
+                    <div id="puzzle-module-2" class="hidden flex-col items-center text-center w-full">
+                        <div class="text-[11px] font-mono uppercase tracking-[0.2em] text-pastelblue mb-1">
+                            <i class="fa-solid fa-key text-amber-300 mr-1"></i>SECURITY LOCK 02 // THE REAL PUJUK PROTOCOL
+                        </div>
+                        <h2 class="font-cinzel text-base sm:text-lg font-bold text-white mb-2">
+                            Apa peraturan paling penting lepas ni bila awak tengah penat study merajuk / badmood?
+                        </h2>
+
+                        <!-- 3 Tactile Cipher Options -->
+                        <div class="w-full space-y-2.5 text-left my-1">
+                            <button onclick="selectCipherOption(1)" class="w-full p-3 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700 hover:border-rose-400/50 transition-all flex items-center gap-3 text-xs sm:text-sm text-slate-200">
+                                <span class="w-6 h-6 rounded-full bg-slate-800 border border-slate-600 flex items-center justify-center font-mono text-xs text-amber-200 shrink-0">A</span>
+                                <span>Sebut "sorry" 100 kali tanpa action & bagi stiker beruang sedih</span>
+                            </button>
+
+                            <button onclick="selectCipherOption(2)" class="w-full p-3 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700 hover:border-rose-400/50 transition-all flex items-center gap-3 text-xs sm:text-sm text-slate-200">
+                                <span class="w-6 h-6 rounded-full bg-slate-800 border border-slate-600 flex items-center justify-center font-mono text-xs text-amber-200 shrink-0">B</span>
+                                <span>Jawab "Okayy then is sokayy" atau suruh cari orang lain</span>
+                            </button>
+
+                            <button onclick="selectCipherOption(3)" class="w-full p-3 rounded-xl bg-slate-900/90 hover:bg-amber-400/15 border border-pastelblue/40 hover:border-amber-300 transition-all flex items-center gap-3 text-xs sm:text-sm text-amber-100 font-medium">
+                                <span class="w-6 h-6 rounded-full bg-amber-400/20 border border-amber-300 flex items-center justify-center font-mono text-xs text-amber-200 shrink-0">C</span>
+                                <span>Pujuk betul-betul, dengar apa dia rasa & jadi lelaki lagi bagus untuk dia ❤️</span>
+                            </button>
+                        </div>
+
+                        <p id="cipher-feedback-msg" class="text-xs font-mono text-pastelblue mt-2 min-h-[20px]">
+                            Select the authorized protocol to disengage Bolt 02.
+                        </p>
+                    </div>
+
+                    <!-- LOCK 01: GOLDEN KEY IGNITION & BIRTHDAY WISH CANDLE -->
+                    <div id="puzzle-module-1" class="hidden flex-col items-center text-center w-full">
+                        <div class="text-[11px] font-mono uppercase tracking-[0.2em] text-pastelblue mb-1">
+                            <i class="fa-solid fa-crown text-amber-300 mr-1"></i>FINAL LOCK 01 
+                        </div>
+                        <h2 class="font-cinzel text-lg sm:text-xl font-bold text-white mb-1">
+                            Turn The Golden Key & Make Your 05.11 Wish
+                        </h2>
+                        <p id="lock1-instruction" class="text-xs text-slate-300 max-w-md mb-4">
+                            Step 1: Tap the ornate Rose-Gold Key below to turn it 90° in the master keyhole!
+                        </p>
+
+                        <div class="flex items-center justify-center gap-8 my-2">
+                            <!-- Step 1: Turn Key Button -->
+                            <div class="flex flex-col items-center">
+                                <button id="golden-key-btn" onclick="turnGoldenKey()" class="w-24 h-24 rounded-full bg-slate-900 border-2 border-amber-300/70 shadow-[0_0_30px_rgba(244,208,104,0.3)] flex items-center justify-center hover:scale-105 transition-all duration-500 cursor-pointer">
+                                    <i id="golden-key-icon" class="fa-solid fa-key text-4xl text-amber-300 transition-transform duration-700"></i>
+                                </button>
+                                <span id="key-status-label" class="text-[10px] font-mono uppercase tracking-wider text-amber-200 mt-2">1. TURN KEY</span>
+                            </div>
+
+                            <!-- Step 2: Pop-up Mechanical Birthday Candle -->
+                            <div id="candle-ritual-box" class="flex flex-col items-center opacity-35 pointer-events-none transition-all duration-500">
+                                <button onclick="blowOutVaultCandle()" class="w-24 h-24 rounded-full bg-slate-900 border-2 border-pastelblue/60 shadow-[0_0_30px_rgba(184,216,248,0.3)] flex flex-col items-center justify-center hover:scale-105 transition-all cursor-pointer relative">
+                                    <!-- Flame -->
+                                    <div id="vault-candle-flame" class="candle-flame w-5 h-7 rounded-full bg-gradient-to-t from-orange-500 via-amber-300 to-white shadow-[0_0_20px_#f59e0b] -mb-1"></div>
+                                    <!-- Candle Body -->
+                                    <div class="w-5 h-9 rounded-t-sm bg-gradient-to-b from-pastelblue to-blue-300 border border-white/60"></div>
+                                </button>
+                                <span id="candle-status-label" class="text-[10px] font-mono uppercase tracking-wider text-pastelblue mt-2">2. TAP TO BLOW WISH</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- RIGHT 5 COLUMNS: THE TACTILE MASTER OVERRIDE BUTTON COUNTDOWN -->
+                <div class="lg:col-span-5 flex flex-col items-center justify-center text-center p-2">
+                    <div class="text-[10px] font-mono uppercase tracking-[0.25em] text-rosegold mb-1">
+                        MASTER OVERRIDE CORE
+                    </div>
+
+                    <!-- Circular SVG Mechanical Ring + Central Button -->
+                    <div class="relative flex items-center justify-center my-1">
+                        <!-- Outer Spinning Gear Ring -->
+                        <div class="absolute w-48 h-48 sm:w-56 sm:h-56 rounded-full border border-dashed border-pastelblue/30 gear-cw pointer-events-none"></div>
+                        
+                        <svg class="w-44 h-44 sm:w-52 sm:h-52 -rotate-90 transform pointer-events-none" viewBox="0 0 200 200">
+                            <circle cx="100" cy="100" r="84" stroke="rgba(184, 216, 248, 0.12)" stroke-width="6" fill="transparent"/>
+                            <circle id="override-ring-progress" cx="100" cy="100" r="84" stroke="url(#vaultGrad)" stroke-width="7" stroke-dasharray="527.78" stroke-dashoffset="527.78" stroke-linecap="round" fill="transparent" class="transition-all duration-700 ease-out"/>
+                            <defs>
+                                <linearGradient id="vaultGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#b8d8f8" />
+                                    <stop offset="50%" stop-color="#f4d068" />
+                                    <stop offset="100%" stop-color="#e5b887" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+
+                        <!-- THE MASTER COUNTDOWN BUTTON -->
+                        <button id="master-override-btn" onclick="pressMasterCountdownButton()" disabled
+                            class="absolute w-34 h-34 sm:w-40 sm:h-40 rounded-full bg-slate-900/95 border-2 border-slate-700 flex flex-col items-center justify-center transition-all duration-300 shadow-2xl cursor-not-allowed opacity-60 group">
+                            <span id="override-top-tag" class="text-[9px] font-mono uppercase tracking-[0.2em] text-slate-400">BOLT LOCKED</span>
+                            <span id="override-countdown-num" class="font-cinzel text-4xl sm:text-5xl font-extrabold text-white gold-glow my-0.5">
+                                5
+                            </span>
+                            <span id="override-action-tag" class="text-[10px] font-mono uppercase tracking-wider text-pastelblue px-2">
+                                SOLVE LOCK FIRST
+                            </span>
+                        </button>
+                    </div>
+
+                    <p id="override-helper-text" class="text-xs text-slate-300 mt-2 max-w-xs">
+                        Complete <span class="text-amber-200 font-semibold">Lock 05</span> on the left to charge the Master Countdown Button!
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- =============================================================
+             VIEW 2: INSIDE THE ROYAL VELVET TREASURE VAULT (GRAND FINALE)
+             ============================================================= -->
+        <section id="grand-vault-view" class="hidden w-full max-w-5xl max-h-[82vh] overflow-y-auto custom-scroll px-2 sm:px-6 py-4 flex-col items-center text-center">
+            
+            <!-- Vault Unlocked Header -->
+            <div class="shrink-0 inline-flex items-center gap-2 px-4 py-1 rounded-full bg-amber-300/15 border border-amber-300/50 text-amber-200 text-xs uppercase tracking-[0.25em] font-cinzel mb-2">
+                <i class="fa-solid fa-unlock-keyhole text-pastelblue"></i>
+                <span>ALL 5 BOLTS DISENGAGED // VAULT OPENED</span>
+            </div>
+
+            <h1 class="shrink-0 font-cinzel text-2xl sm:text-5xl font-extrabold text-white gold-glow tracking-wider leading-tight mb-1">
+                HAPPY BIRTHDAY, <span class="recipient-name-display text-pastelblue">FARISHA FARHANA</span>
+            </h1>
+            <p class="shrink-0 font-serif italic text-lg sm:text-2xl text-amber-200 mb-6">
+                "05 November • My Favorite Person, My Hardest-Working Pharmacist Princess! 💕"
+            </p>
+
+            <!-- 1. THE ROYAL WAX-SEALED LETTER -->
+            <div class="vault-frame shrink-0 w-full max-w-3xl rounded-3xl p-6 sm:p-9 text-left border-2 border-rosegold/50 shadow-2xl mb-8 relative overflow-visible h-auto">
+                <div class="flex items-center justify-between border-b border-pastelblue/20 pb-4 mb-5">
+                    <div>
+                        <span class="text-[10px] font-mono uppercase tracking-[0.25em] text-pastelblue">CONFIDENTIAL VAULT DISPATCH • 05/11/2026</span>
+                        <h3 id="final-letter-salutation" class="font-serif italic text-2xl sm:text-3xl text-white font-bold mt-0.5">
+                            To My Dearest Farisha Farhana,
+                        </h3>
+                    </div>
+                    <div class="w-12 h-12 rounded-full rosegold-metallic flex items-center justify-center shrink-0 shadow-lg">
+                        <i class="fa-solid fa-heart text-lg text-slate-950"></i>
+                    </div>
+                </div>
+
+                <!-- Heartfelt Letter Body -->
+                <div id="final-letter-body" class="font-serif text-lg sm:text-xl text-slate-100 leading-relaxed space-y-4 whitespace-pre-line break-words min-h-[220px]"></div>
+
+                <div class="mt-7 pt-4 border-t border-pastelblue/20 flex flex-wrap items-center justify-between gap-4">
+                    <div>
+                        <p class="text-xs font-mono uppercase tracking-widest text-pastelblue">Locked In Forever,</p>
+                        <p id="final-letter-signature" class="font-serif italic text-2xl text-amber-200 font-bold">
+                            Sky ❤️
+                        </p>
+                    </div>
+
+                    <button onclick="triggerCelebrationBurst()" class="rosegold-metallic px-5 py-2.5 rounded-full font-bold text-xs uppercase tracking-widest hover:scale-105 transition-transform flex items-center gap-2">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        <span>Shower Starlight</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 2. REALISTIC SOFT-BODY SQUISHY TOY BOX (TOUCH, HOLD INDENTATION & DRAG STRETCH) -->
+            <div class="shrink-0 w-full max-w-3xl mb-8">
+                <div class="flex items-center justify-center gap-3 mb-2">
+                    <span class="h-px w-10 bg-pastelblue/40"></span>
+                    <h3 class="font-cinzel text-sm sm:text-lg uppercase tracking-[0.22em] text-pastelblue">
+                        <i class="fa-solid fa-hand-sparkles text-amber-300 mr-1.5"></i>Tactile Anti-Stress Squishy Studio
+                    </h3>
+                    <span class="h-px w-10 bg-pastelblue/40"></span>
+                </div>
+                <p class="text-xs text-slate-300 mb-4">
+                    Press & hold to indent the dough, or drag & pull anywhere to stretch and squish away all your MedChem & lab report stress!
+                </p>
+
+                <div class="vault-frame p-5 sm:p-6 rounded-3xl border border-rosegold/40 relative overflow-hidden">
+                    <!-- Top Toy Selector & Squish Meter -->
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-4 pb-3 border-b border-pastelblue/15">
+                        <div class="flex items-center gap-2">
+                            <button onclick="selectSquishyType('butter')" id="squish-tab-butter" class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-amber-300 text-slate-950 shadow transition-all cursor-pointer">
+                                🧈 Whipped Butter
+                            </button>
+                            <button onclick="selectSquishyType('cookie')" id="squish-tab-cookie" class="px-3.5 py-1.5 rounded-full text-xs font-medium bg-slate-900/90 text-pastelblue border border-pastelblue/30 hover:border-amber-300 transition-all cursor-pointer">
+                                🍪 Soft Cookie Dough
+                            </button>
+                            <button onclick="selectSquishyType('mochi')" id="squish-tab-mochi" class="px-3.5 py-1.5 rounded-full text-xs font-medium bg-slate-900/90 text-pastelblue border border-pastelblue/30 hover:border-amber-300 transition-all cursor-pointer">
+                                🍡 Cloud Mochi
+                            </button>
+                        </div>
+
+                        <div class="flex items-center gap-2 font-mono text-xs bg-slate-950/80 px-3 py-1 rounded-full border border-amber-300/30 text-amber-200">
+                            <span>STRESS MELTED:</span>
+                            <span id="squish-counter" class="font-bold text-emerald-300">0%</span>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Multi-Node Soft-Body Physics Canvas -->
+                    <div class="relative w-full h-64 sm:h-72 rounded-2xl bg-slate-950/80 border border-pastelblue/20 flex items-center justify-center overflow-hidden shadow-inner">
+                        <canvas id="squishy-canvas" width="640" height="280" class="w-full h-full cursor-grab active:cursor-grabbing touch-none"></canvas>
+                        <div class="absolute bottom-2.5 left-0 right-0 pointer-events-none text-[10px] font-mono uppercase tracking-widest text-slate-400">
+                            PRESS & HOLD TO DENT • DRAG TO STRETCH & KNEAD • RELEASE TO BOUNCE
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Cute Compliment Bar -->
+                    <p id="squishy-quote" class="font-serif italic text-base sm:text-lg text-amber-200 mt-3 min-h-[26px]">
+                        "Press, hold, and drag the whipped butter to knead away all your 5 AM study tiredness! 💕"
+                    </p>
+                </div>
+            </div>
+
+            <!-- 3. SNAPSHOT POLAROIDS INSIDE THE VAULT -->
+            <div class="shrink-0 w-full max-w-4xl mb-8">
+                <h3 class="font-cinzel text-sm sm:text-base uppercase tracking-[0.22em] text-amber-200 mb-4">
+                    ✦ Vault Memory Archives ✦
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 px-2">
+                    <div class="bg-slate-900/90 p-3 pb-4 rounded-2xl border border-pastelblue/30 shadow-xl transform sm:-rotate-1 hover:rotate-0 transition-all">
+                        <div class="w-full h-44 rounded-xl overflow-hidden bg-slate-800 mb-2.5">
+                            <img id="vault-img-1" src="https://placehold.co/600x500/162f4c/b8d8f8?text=My+Cookies+%F0%9F%92%95" alt="Memory 1" class="w-full h-full object-cover">
+                        </div>
+                        <p id="vault-cap-1" class="font-serif italic text-base text-pastelblue">"Undefeated Best GF, even on the toughest study days."</p>
+                    </div>
+
+                    <div class="bg-slate-900/90 p-3 pb-4 rounded-2xl border border-rosegold/40 shadow-xl transform hover:scale-105 transition-all">
+                        <div class="w-full h-44 rounded-xl overflow-hidden bg-slate-800 mb-2.5">
+                            <img id="vault-img-2" src="https://placehold.co/600x500/1e3a5f/f4d068?text=05+November+Queen+%E2%9C%A8" alt="Memory 2" class="w-full h-full object-cover">
+                        </div>
+                        <p id="vault-cap-2" class="font-serif italic text-base text-amber-200">"Proud of how hard you fight through every exam & report."</p>
+                    </div>
+
+                    <div class="bg-slate-900/90 p-3 pb-4 rounded-2xl border border-pastelblue/30 shadow-xl transform sm:rotate-1 hover:rotate-0 transition-all">
+                        <div class="w-full h-44 rounded-xl overflow-hidden bg-slate-800 mb-2.5">
+                            <img id="vault-img-3" src="https://placehold.co/600x500/0d1b2a/e5b887?text=Always+With+You+%E2%99%A5" alt="Memory 3" class="w-full h-full object-cover">
+                        </div>
+                        <p id="vault-cap-3" class="font-serif italic text-base text-pastelblue">"Tak pernah penat sayang awak—today, tomorrow & always."</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Replay / Edit Buttons -->
+            <div class="shrink-0 flex flex-wrap items-center justify-center gap-3 pb-6">
+                <button onclick="resetEntireVault()" class="vault-frame px-6 py-3 rounded-full text-xs uppercase tracking-widest text-pastelblue hover:text-white border border-pastelblue/40 flex items-center gap-2">
+                    <i class="fa-solid fa-rotate-left"></i>
+                    <span>Lock Vault & Replay Puzzles</span>
+                </button>
+                <!--
+                <button onclick="toggleDirectorModal()" class="vault-frame px-6 py-3 rounded-full text-xs uppercase tracking-widest text-amber-200 hover:text-white border border-amber-300/40 flex items-center gap-2">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    <span>Customize Photos & Letter</span>
+                </button>
+                -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- =================================================================
+         DIRECTOR'S STUDIO MODAL (EASY CUSTOMIZATION & STAGE JUMP)
+         ================================================================= -->
+    <div id="director-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
+        <div class="vault-frame max-w-2xl w-full max-h-[88vh] rounded-3xl p-6 sm:p-8 overflow-y-auto custom-scroll text-left">
+            <div class="flex items-center justify-between border-b border-pastelblue/20 pb-4 mb-5">
+                <div>
+                    <h3 class="font-cinzel text-lg sm:text-xl font-bold text-white">Director's Studio // Vault Customizer</h3>
+                    <p class="text-xs text-pastelblue">Test any lock instantly or upload your real photos with Farisha</p>
+                </div>
+                <button onclick="toggleDirectorModal()" class="w-9 h-9 rounded-full bg-slate-800 text-slate-300 flex items-center justify-center hover:bg-slate-700">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Quick Lock Jump -->
+            <div class="mb-5">
+                <label class="block text-xs font-mono uppercase tracking-wider text-amber-200 mb-2">Jump Directly To Any Lock Stage:</label>
+                <div class="grid grid-cols-3 sm:grid-cols-6 gap-2">
+                    <button onclick="jumpToLock(5); toggleDirectorModal();" class="p-2 rounded-xl bg-slate-900 border border-pastelblue/30 text-xs text-center text-white hover:border-amber-300">Lock 05<br><span class="text-[10px] text-slate-400">Scanner</span></button>
+                    <button onclick="jumpToLock(4); toggleDirectorModal();" class="p-2 rounded-xl bg-slate-900 border border-pastelblue/30 text-xs text-center text-white hover:border-amber-300">Lock 04<br><span class="text-[10px] text-slate-400">05/11 Dial</span></button>
+                    <button onclick="jumpToLock(3); toggleDirectorModal();" class="p-2 rounded-xl bg-slate-900 border border-pastelblue/30 text-xs text-center text-white hover:border-amber-300">Lock 03<br><span class="text-[10px] text-slate-400">Wave Sync</span></button>
+                    <button onclick="jumpToLock(2); toggleDirectorModal();" class="p-2 rounded-xl bg-slate-900 border border-pastelblue/30 text-xs text-center text-white hover:border-amber-300">Lock 02<br><span class="text-[10px] text-slate-400">Pujuk Quiz</span></button>
+                    <button onclick="jumpToLock(1); toggleDirectorModal();" class="p-2 rounded-xl bg-slate-900 border border-pastelblue/30 text-xs text-center text-white hover:border-amber-300">Lock 01<br><span class="text-[10px] text-slate-400">Key & Wish</span></button>
+                    <button onclick="openGrandVault(); toggleDirectorModal();" class="p-2 rounded-xl bg-amber-400/20 border border-amber-300 text-xs text-center text-amber-200 font-bold">FINALE<br><span class="text-[10px]">Open Vault</span></button>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs text-slate-300 mb-1">Recipient Name</label>
+                        <input id="edit-name" type="text" value="Farisha Farhana (Cookies 💕)" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-sm text-white">
+                    </div>
+                    <div>
+                        <label class="block text-xs text-slate-300 mb-1">Your Sign-Off</label>
+                        <input id="edit-sig" type="text" value="Akid (~kiddy~) ❤️" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-sm text-white">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs text-slate-300 mb-1">Personal Birthday Letter Inside The Vault</label>
+                    <textarea id="edit-letter" rows="6" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-sm text-white"></textarea>
+                </div>
+
+                <!-- Upload Local Photos -->
+                <div>
+                    <label class="block text-xs font-mono uppercase tracking-wider text-pastelblue mb-2">Upload Your 3 Memory Photos:</label>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800 space-y-2">
+                            <span class="text-xs text-amber-200 font-semibold">Photo #1</span>
+                            <input type="file" accept="image/*" onchange="uploadVaultPhoto(event, 1)" class="block w-full text-[11px] text-slate-400 file:mr-2 file:py-1 file:px-2 file:rounded-full file:border-0 file:text-xs file:bg-pastelblue/20 file:text-pastelblue">
+                            <input id="edit-cap-1" type="text" value="Undefeated Best GF, even on the toughest study days." class="w-full px-2 py-1 rounded bg-slate-950 border border-slate-700 text-xs text-white">
+                        </div>
+                        <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800 space-y-2">
+                            <span class="text-xs text-amber-200 font-semibold">Photo #2</span>
+                            <input type="file" accept="image/*" onchange="uploadVaultPhoto(event, 2)" class="block w-full text-[11px] text-slate-400 file:mr-2 file:py-1 file:px-2 file:rounded-full file:border-0 file:text-xs file:bg-pastelblue/20 file:text-pastelblue">
+                            <input id="edit-cap-2" type="text" value="Proud of how hard you fight through every exam & report." class="w-full px-2 py-1 rounded bg-slate-950 border border-slate-700 text-xs text-white">
+                        </div>
+                        <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800 space-y-2">
+                            <span class="text-xs text-amber-200 font-semibold">Photo #3</span>
+                            <input type="file" accept="image/*" onchange="uploadVaultPhoto(event, 3)" class="block w-full text-[11px] text-slate-400 file:mr-2 file:py-1 file:px-2 file:rounded-full file:border-0 file:text-xs file:bg-pastelblue/20 file:text-pastelblue">
+                            <input id="edit-cap-3" type="text" value="Tak pernah penat sayang awak—today, tomorrow & always." class="w-full px-2 py-1 rounded bg-slate-950 border border-slate-700 text-xs text-white">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-pastelblue/20 flex justify-end gap-3">
+                <button onclick="toggleDirectorModal()" class="px-4 py-2 rounded-full bg-slate-800 text-slate-300 text-xs uppercase">Close</button>
+                <button onclick="saveDirectorChanges()" class="rosegold-metallic px-6 py-2 rounded-full font-bold text-xs uppercase">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- =================================================================
+         JAVASCRIPT ENGINE (PROCEDURAL AUDIO, 5 PUZZLES, REAL SOFT-BODY SQUISHY)
+         ================================================================= -->
+    <script>
+        /******************************************************************
+         * 1. VAULT STATE & PERSONALIZED STORY CONTENT FOR FARISHA (05/11)
+         ******************************************************************/
+        const vaultState = {
+            currentLock: 5,
+            boltUnlockedForCurrentStage: false,
+            
+            bioProgress: 0,
+            bioScanning: false,
+            bioDone: false,
+
+            cryptexDay: 1,
+            cryptexMonth: 8,
+            cryptexDone: false,
+
+            waveValue: 18,
+            waveTarget: 80,
+            wavePhase: 0,
+            waveDone: false,
+
+            cipherDone: false,
+
+            keyTurned: false,
+            candleBlown: false,
+
+            defaultLetter: `Happy Birthday to my favorite person and my hardest-working pharmacist Princess! 🎂✨ Wishing the happiest birthday to the most my special girl 💖 I hope today brings you a well-deserved break from all your studying and lab reports.\n
+Malam ni saya nak bagitahu kat awak yang sayang kat awak. Saya nak awak tahu saya bangga saya tengok usaha awak selama exam ni. Orang lain mungkin tak nampak betapa penatnya awak tidur pukul 5 pagi study Phytochem, hadap pulak MedChem, pastu siapkan 3 lab report panjang lagi sambil nak kena kejar bas pukul 8:30 malam. Awak kuat sangat, dan awak deserve untuk rehat lepas apa yang awak usaha selama ni.\n\nLepastu kan, pasal apa yang kita chat kat WhatsApp & TikTok semalam bila awak cakap "I don't think I'm the best GF", jawapan saya tetap sama: bagi saya, awak tetap the best. Saya janji lepas ni taknak dah guna ayat mengada-ngada, taknak sebut 'sorry' kosong tanpa perubahan, dan takkan sesekali suruh awak cari orang lain, pastu cakap nak matila terbakar la apa semua tuu saya nak stop dahh. Pastu bila awak penat atau badmood, saya sendiri yang akan pujuk awak ikut cara yang buat awak rasa sebelum ni saya pernah buat.\n\nSaya tak pernah penat sayangkan awak, dan saya takkan pergi mana-mana. Selamat Hari Lahir (05/11), cinta hati saya. Semoga tahun baru usia awak ni penuh dengan ketenangan, A+ untuk semua subjek, dan kebahagiaan yang melimpah ruah. ❤️`
+        };
+
+        document.getElementById('final-letter-body').textContent = vaultState.defaultLetter;
+        document.getElementById('edit-letter').value = vaultState.defaultLetter;
+
+        /******************************************************************
+         * 2. PROCEDURAL WEB AUDIO ENGINE (SAFE CLICKS, SQUISH, CHORDS)
+         ******************************************************************/
+        class ChronosAudioEngine {
+            constructor() {
+                this.ctx = null;
+                this.muted = false;
+                this.lastSquishSound = 0;
+            }
+
+            init() {
+                if (!this.ctx) {
+                    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+                    this.ctx = new AudioCtx();
+                }
+                if (this.ctx && this.ctx.state === 'suspended') {
+                    this.ctx.resume();
+                }
+            }
+
+            playTone(freq, duration = 0.4, type = 'sine', vol = 0.1, delay = 0) {
+                if (this.muted) return;
+                this.init();
+                const now = this.ctx.currentTime + delay;
+                const osc = this.ctx.createOscillator();
+                const gain = this.ctx.createGain();
+                osc.type = type;
+                osc.frequency.setValueAtTime(freq, now);
+                gain.gain.setValueAtTime(0.001, now);
+                gain.gain.exponentialRampToValueAtTime(vol, now + 0.02);
+                gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+                osc.connect(gain);
+                gain.connect(this.ctx.destination);
+                osc.start(now);
+                osc.stop(now + duration + 0.03);
+            }
+
+            // Soft ASMR dough/butter squish & release sound
+            playSquishBoing(pitchShift = 1) {
+                if (this.muted) return;
+                const nowMs = performance.now();
+                if (nowMs - this.lastSquishSound < 70) return;
+                this.lastSquishSound = nowMs;
+
+                this.init();
+                const now = this.ctx.currentTime;
+                const osc = this.ctx.createOscillator();
+                const gain = this.ctx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(190 * pitchShift, now);
+                osc.frequency.exponentialRampToValueAtTime(460 * pitchShift, now + 0.09);
+                osc.frequency.exponentialRampToValueAtTime(260 * pitchShift, now + 0.22);
+                gain.gain.setValueAtTime(0.001, now);
+                gain.gain.exponentialRampToValueAtTime(0.12, now + 0.02);
+                gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.23);
+                osc.connect(gain);
+                gain.connect(this.ctx.destination);
+                osc.start(now);
+                osc.stop(now + 0.24);
+            }
+
+            playDialClick() {
+                this.playTone(920, 0.045, 'triangle', 0.14, 0);
+                this.playTone(320, 0.06, 'sine', 0.12, 0.01);
+            }
+
+            playScanHum(progress) {
+                this.playTone(280 + progress * 3.5, 0.09, 'sine', 0.06, 0);
+            }
+
+            playAccessDenied() {
+                this.playTone(150, 0.22, 'sawtooth', 0.12, 0);
+                this.playTone(130, 0.28, 'sawtooth', 0.12, 0.15);
+            }
+
+            playLockSolved() {
+                const notes = [523.25, 659.25, 783.99, 1046.50];
+                notes.forEach((f, idx) => this.playTone(f, 0.9, 'sine', 0.11, idx * 0.07));
+            }
+
+            playBoltRetract(stageNumber) {
+                this.playTone(75, 0.55, 'sine', 0.28, 0);
+                this.playTone(145, 0.35, 'triangle', 0.18, 0.04);
+
+                const base = 261.63 + (5 - stageNumber) * 45;
+                [base, base * 1.25, base * 1.5, base * 2].forEach((f, i) => {
+                    this.playTone(f, 1.8, 'sine', 0.09, 0.1 + i * 0.07);
+                });
+            }
+
+            playGrandVaultOpen() {
+                const melody = [261.63, 329.63, 392.00, 523.25, 659.25, 783.99, 1046.50];
+                melody.forEach((f, i) => {
+                    this.playTone(f, 2.5, 'sine', 0.11, i * 0.1);
+                });
+            }
+        }
+
+        const sfx = new ChronosAudioEngine();
+
+        function toggleAudio() {
+            sfx.init();
+            sfx.muted = !sfx.muted;
+            const icon = document.getElementById('audio-icon');
+            icon.className = sfx.muted ? 'fa-solid fa-volume-xmark text-rose-400 text-sm' : 'fa-solid fa-volume-high text-amber-200 text-sm';
+        }
+
+        /******************************************************************
+         * 3. LIVE COUNTDOWN TO NOVEMBER 5 (05.11)
+         ******************************************************************/
+        function updateMidnightClock() {
+            const now = new Date();
+            const target = new Date(2026, 10, 5, 0, 0, 0);
+            const diff = target - now;
+
+            const el = document.getElementById('midnight-countdown-text');
+            if (diff <= 0) {
+                el.innerHTML = `<span class="text-amber-300 font-bold">★ HAPPY BIRTHDAY FARISHA • 05.11 ★</span>`;
+            } else {
+                const hrs = String(Math.floor(diff / (1000 * 60 * 60))).padStart(2, '0');
+                const mins = String(Math.floor((diff / (1000 * 60)) % 60)).padStart(2, '0');
+                const secs = String(Math.floor((diff / 1000) % 60)).padStart(2, '0');
+                el.textContent = `05.11 MIDNIGHT IN: ${hrs}h ${mins}m ${secs}s`;
+            }
+        }
+        setInterval(updateMidnightClock, 1000);
+        updateMidnightClock();
+
+        /******************************************************************
+         * 4. LOCK 05: BIOMETRIC HEARTBEAT & "BEST GF" TRUTH SCANNER
+         ******************************************************************/
+        let bioTimer = null;
+
+        function startBiometricScan(e) {
+            if (e) e.preventDefault();
+            if (vaultState.bioDone) return;
+
+            sfx.init();
+            vaultState.bioScanning = true;
+            document.getElementById('bio-laser-line').classList.remove('hidden');
+            document.getElementById('bio-pad-label').textContent = "SCANNING...";
+
+            if (bioTimer) clearInterval(bioTimer);
+            bioTimer = setInterval(() => {
+                if (!vaultState.bioScanning) return;
+                vaultState.bioProgress = Math.min(100, vaultState.bioProgress + 4);
+                document.getElementById('bio-progress-fill').style.width = `${vaultState.bioProgress}%`;
+                sfx.playScanHum(vaultState.bioProgress);
+
+                const line1 = document.getElementById('bio-log-line-1');
+                const line2 = document.getElementById('bio-log-line-2');
+
+                if (vaultState.bioProgress < 35) {
+                    line1.textContent = "> Matching Heartbeat: Farisha Farhana (Cookies 💕)...";
+                    line2.textContent = "Status: 100% Cutie & Hardworking Queen";
+                } else if (vaultState.bioProgress < 75) {
+                    line1.textContent = "> Scanning Phytochem, MedChem & 3 Lab Reports Stamina...";
+                    line2.textContent = "Brainpower Level: 9999% (Tidur 5 AM Fighter!)";
+                } else if (vaultState.bioProgress < 100) {
+                    line1.textContent = "> Fact-Checking Her TikTok Claim: 'I dont think I am the best gf'...";
+                    line2.textContent = "CLAIM REJECTED! Still Undefeated Best GF ❤️";
+                } else {
+                    completeBiometricScan();
+                }
+            }, 65);
+        }
+
+        function stopBiometricScan() {
+            vaultState.bioScanning = false;
+            if (bioTimer) clearInterval(bioTimer);
+            if (!vaultState.bioDone) {
+                document.getElementById('bio-laser-line').classList.add('hidden');
+                document.getElementById('bio-pad-label').textContent = "HOLD TO SCAN";
+            }
+        }
+
+        function completeBiometricScan() {
+            vaultState.bioDone = true;
+            stopBiometricScan();
+            document.getElementById('bio-laser-line').classList.add('hidden');
+            document.getElementById('bio-icon').className = "fa-solid fa-heart-circle-check text-4xl sm:text-5xl text-amber-300";
+            document.getElementById('bio-pad-label').textContent = "VERIFIED ♥";
+            enableMasterButtonForStage(5);
+        }
+
+        /******************************************************************
+         * 5. LOCK 04: THE 05 / 11 CHRONOS DATE CRYPTEX
+         ******************************************************************/
+        function adjustCryptex(unit, delta) {
+            if (vaultState.cryptexDone) return;
+            sfx.playDialClick();
+
+            if (unit === 'day') {
+                vaultState.cryptexDay = ((vaultState.cryptexDay - 1 + delta + 31) % 31) + 1;
+                document.getElementById('cryptex-day-val').textContent = String(vaultState.cryptexDay).padStart(2, '0');
+            } else {
+                vaultState.cryptexMonth = ((vaultState.cryptexMonth - 1 + delta + 12) % 12) + 1;
+                document.getElementById('cryptex-month-val').textContent = String(vaultState.cryptexMonth).padStart(2, '0');
+            }
+
+            if (vaultState.cryptexDay === 5 && vaultState.cryptexMonth === 11) {
+                vaultState.cryptexDone = true;
+                const fb = document.getElementById('cryptex-feedback');
+                fb.textContent = "✦ 05 / 11 ALIGNED! The day my favorite person was born. ✦";
+                fb.className = "text-xs font-mono text-emerald-300 font-bold mt-3";
+                enableMasterButtonForStage(4);
+            }
+        }
+
+        /******************************************************************
+         * 6. LOCK 03: HARMONIC VIBE TUNER (OSCILLOSCOPE SYNC)
+         ******************************************************************/
+        const waveCanvas = document.getElementById('wave-canvas');
+        const waveCtx = waveCanvas.getContext('2d');
+
+        function updateHarmonicTuner(val) {
+            if (vaultState.waveDone) return;
+            vaultState.waveValue = Number(val);
+            sfx.playDialClick();
+
+            const diff = Math.abs(vaultState.waveValue - vaultState.waveTarget);
+            const syncPct = Math.max(0, Math.round(100 - diff * 1.4));
+            document.getElementById('wave-sync-pct').textContent = `SYNC: ${syncPct}%`;
+
+            if (diff <= 4) {
+                vaultState.waveDone = true;
+                vaultState.waveValue = vaultState.waveTarget;
+                document.getElementById('harmonic-slider').value = vaultState.waveTarget;
+                document.getElementById('wave-sync-pct').textContent = `SYNC: 100% LOCKED ♥`;
+                const msg = document.getElementById('harmonic-status-msg');
+                msg.textContent = `"Harmonic Resonance Locked: Saya tak pernah penat layan awak & takkan pernah give up."`;
+                msg.className = "text-xs font-serif italic text-amber-200 font-semibold mt-3";
+                enableMasterButtonForStage(3);
+            }
+        }
+
+        function renderHarmonicWaves() {
+            if (vaultState.currentLock === 3) {
+                waveCtx.clearRect(0, 0, waveCanvas.width, waveCanvas.height);
+                vaultState.wavePhase += 0.06;
+
+                waveCtx.save();
+                waveCtx.strokeStyle = 'rgba(184, 216, 248, 0.55)';
+                waveCtx.lineWidth = 2.5;
+                waveCtx.beginPath();
+                for (let x = 0; x < waveCanvas.width; x++) {
+                    const y = 50 + Math.sin(x * 0.035 + vaultState.wavePhase) * 26;
+                    if (x === 0) waveCtx.moveTo(x, y);
+                    else waveCtx.lineTo(x, y);
+                }
+                waveCtx.stroke();
+
+                const freqOffset = (vaultState.waveValue - vaultState.waveTarget) * 0.0008;
+                const ampOffset = (vaultState.waveValue - vaultState.waveTarget) * 0.25;
+                waveCtx.strokeStyle = vaultState.waveDone ? '#f4d068' : '#e5b887';
+                waveCtx.lineWidth = 3;
+                waveCtx.shadowColor = '#f4d068';
+                waveCtx.shadowBlur = vaultState.waveDone ? 12 : 4;
+                waveCtx.beginPath();
+                for (let x = 0; x < waveCanvas.width; x++) {
+                    const y = 50 + Math.sin(x * (0.035 + freqOffset) + vaultState.wavePhase + (vaultState.waveDone ? 0 : 0.6)) * (26 + ampOffset);
+                    if (x === 0) waveCtx.moveTo(x, y);
+                    else waveCtx.lineTo(x, y);
+                }
+                waveCtx.stroke();
+                waveCtx.restore();
+            }
+            requestAnimationFrame(renderHarmonicWaves);
+        }
+        renderHarmonicWaves();
+
+        /******************************************************************
+         * 7. LOCK 02: THE INSIDE-MEMORY CIPHER ("REAL PUJUK PROTOCOL")
+         ******************************************************************/
+        function selectCipherOption(choice) {
+            if (vaultState.cipherDone) return;
+            const fb = document.getElementById('cipher-feedback-msg');
+
+            if (choice === 1) {
+                sfx.playAccessDenied();
+                fb.textContent = "❌ ACCESS DENIED: Cookies dah cakap taknak 'sorry' kosong tanpa action! Cuba lagi 💕";
+                fb.className = "text-xs font-mono text-rose-400 mt-2";
+            } else if (choice === 2) {
+                sfx.playAccessDenied();
+                fb.textContent = "❌ ACCESS DENIED: Dilarang sama sekali lepas tangan atau suruh cari orang lain! Cuba lagi 💕";
+                fb.className = "text-xs font-mono text-rose-400 mt-2";
+            } else if (choice === 3) {
+                vaultState.cipherDone = true;
+                fb.textContent = "✓ PROTOCOL VERIFIED: Action over words! Saya sendiri akan jadi yang terbaik untuk awak.";
+                fb.className = "text-xs font-mono text-emerald-300 font-bold mt-2";
+                enableMasterButtonForStage(2);
+            }
+        }
+
+        /******************************************************************
+         * 8. LOCK 01: GOLDEN KEY IGNITION & BIRTHDAY WISH CANDLE
+         ******************************************************************/
+        function turnGoldenKey() {
+            if (vaultState.keyTurned) return;
+            vaultState.keyTurned = true;
+            sfx.playBoltRetract(2);
+
+            document.getElementById('golden-key-icon').classList.add('rotate-90', 'text-emerald-300');
+            document.getElementById('key-status-label').textContent = "KEY ENGAGED ✓";
+            document.getElementById('lock1-instruction').textContent = "Step 2: Make your 05/11 birthday wish and tap the glowing candle to blow it out!";
+
+            const candleBox = document.getElementById('candle-ritual-box');
+            candleBox.classList.remove('opacity-35', 'pointer-events-none');
+        }
+
+        function blowOutVaultCandle() {
+            if (!vaultState.keyTurned || vaultState.candleBlown) return;
+            vaultState.candleBlown = true;
+
+            document.getElementById('vault-candle-flame').classList.add('hidden');
+            document.getElementById('candle-status-label').textContent = "WISH LOCKED IN ★";
+            document.getElementById('lock1-instruction').textContent = "✦ All 5 Locks Solved! Press the Master Countdown Button [1] to open your vault! ✦";
+
+            enableMasterButtonForStage(1);
+        }
+
+        /******************************************************************
+         * 9. THE MASTER OVERRIDE BUTTON COUNTDOWN (5 -> 4 -> 3 -> 2 -> 1)
+         ******************************************************************/
+        function enableMasterButtonForStage(stage) {
+            sfx.playLockSolved();
+            vaultState.boltUnlockedForCurrentStage = true;
+
+            const btn = document.getElementById('master-override-btn');
+            btn.disabled = false;
+            btn.className = "absolute w-34 h-34 sm:w-40 sm:h-40 rounded-full rosegold-metallic flex flex-col items-center justify-center transition-all duration-300 shadow-[0_0_50px_rgba(244,208,104,0.65)] hover:scale-105 active:scale-95 cursor-pointer";
+
+            document.getElementById('override-top-tag').textContent = `BOLT 0${stage} READY`;
+            document.getElementById('override-top-tag').className = "text-[9px] font-mono uppercase tracking-[0.2em] text-slate-900 font-bold";
+            document.getElementById('override-countdown-num').className = "font-cinzel text-4xl sm:text-5xl font-extrabold text-slate-950 my-0.5";
+            document.getElementById('override-action-tag').textContent = stage === 1 ? "TAP TO OPEN VAULT!" : `PRESS COUNTDOWN [${stage}]`;
+            document.getElementById('override-action-tag').className = "text-[10px] font-mono uppercase tracking-wider text-slate-950 font-extrabold px-2";
+
+            const rect = btn.getBoundingClientRect();
+            spawnSparkles(rect.left + rect.width / 2, rect.top + rect.height / 2, 35);
+        }
+
+        function pressMasterCountdownButton() {
+            if (!vaultState.boltUnlockedForCurrentStage) return;
+
+            const current = vaultState.currentLock;
+            sfx.playBoltRetract(current);
+
+            const body = document.getElementById('app-body');
+            body.classList.remove('shake-vault');
+            void body.offsetWidth;
+            body.classList.add('shake-vault');
+
+            const btn = document.getElementById('master-override-btn');
+            const rect = btn.getBoundingClientRect();
+            spawnSparkles(rect.left + rect.width / 2, rect.top + rect.height / 2, 65);
+
+            const boltIcon = document.getElementById(`bolt-icon-${current}`);
+            if (boltIcon) boltIcon.className = "fa-solid fa-unlock text-emerald-400";
+            const boltCard = document.getElementById(`bolt-card-${current}`);
+            if (boltCard) boltCard.className = "vault-frame px-2 py-2 rounded-xl flex flex-col items-center border border-emerald-400/50 bg-emerald-950/20 transition-all";
+
+            const fractionDone = (6 - current) / 5;
+            document.getElementById('override-ring-progress').style.strokeDashoffset = 527.78 * (1 - fractionDone);
+
+            if (current > 1) {
+                jumpToLock(current - 1);
+            } else {
+                setTimeout(() => {
+                    openGrandVault();
+                }, 550);
+            }
+        }
+
+        function jumpToLock(stageNum) {
+            vaultState.currentLock = stageNum;
+            vaultState.boltUnlockedForCurrentStage = false;
+
+            document.getElementById('puzzle-box-view').classList.remove('hidden');
+            document.getElementById('grand-vault-view').classList.add('hidden');
+            document.getElementById('grand-vault-view').classList.remove('flex');
+
+            document.getElementById('vault-status-header').textContent = `SECURITY LOCK 0${stageNum}`;
+
+            for (let i = 1; i <= 5; i++) {
+                const mod = document.getElementById(`puzzle-module-${i}`);
+                const nav = document.getElementById(`nav-lock-${i}`);
+                if (i === stageNum) {
+                    mod.classList.remove('hidden');
+                    mod.classList.add('flex');
+                    if (nav) nav.className = "px-2.5 py-1 rounded-full bg-amber-400/20 text-amber-200 font-bold";
+                } else {
+                    mod.classList.add('hidden');
+                    mod.classList.remove('flex');
+                    if (nav) nav.className = "px-2.5 py-1 rounded-full text-slate-400 hover:text-white";
+                }
+            }
+
+            const activeBoltCard = document.getElementById(`bolt-card-${stageNum}`);
+            if (activeBoltCard) {
+                activeBoltCard.classList.remove('opacity-60');
+                activeBoltCard.classList.add('border-amber-300/60');
+            }
+
+            const btn = document.getElementById('master-override-btn');
+            btn.disabled = true;
+            btn.className = "absolute w-34 h-34 sm:w-40 sm:h-40 rounded-full bg-slate-900/95 border-2 border-slate-700 flex flex-col items-center justify-center transition-all duration-300 shadow-2xl cursor-not-allowed opacity-60";
+            document.getElementById('override-top-tag').textContent = `BOLT 0${stageNum} LOCKED`;
+            document.getElementById('override-top-tag').className = "text-[9px] font-mono uppercase tracking-[0.2em] text-slate-400";
+            document.getElementById('override-countdown-num').textContent = stageNum;
+            document.getElementById('override-countdown-num').className = "font-cinzel text-4xl sm:text-5xl font-extrabold text-white gold-glow my-0.5";
+            document.getElementById('override-action-tag').textContent = "SOLVE LOCK FIRST";
+            document.getElementById('override-action-tag').className = "text-[10px] font-mono uppercase tracking-wider text-pastelblue px-2";
+            document.getElementById('override-helper-text').innerHTML = `Complete <span class="text-amber-200 font-semibold">Lock 0${stageNum}</span> on the left to charge Countdown [${stageNum}]!`;
+        }
+
+        function openGrandVault() {
+            sfx.playGrandVaultOpen();
+            document.getElementById('vault-status-header').textContent = "UNLOCKED FOR FARISHA FARHANA ♥";
+            document.getElementById('puzzle-box-view').classList.add('hidden');
+
+            const grand = document.getElementById('grand-vault-view');
+            grand.classList.remove('hidden');
+            grand.classList.add('flex');
+            grand.scrollTop = 0;
+
+            initSoftBodyMesh(softSquishy.type);
+            triggerCelebrationBurst();
+        }
+
+        /******************************************************************
+         * 9.5 REALISTIC MULTI-NODE SOFT-BODY SQUISHY PHYSICS ENGINE
+         * Supports local finger indentation on hold, directional pull/stretch
+         * on drag, volume conservation bulging, and jelly recoil on release!
+         ******************************************************************/
+        const squishCanvas = document.getElementById('squishy-canvas');
+        const squishCtx = squishCanvas.getContext('2d');
+
+        const NUM_NODES = 32;
+        const softSquishy = {
+            type: 'butter', // 'butter' | 'cookie' | 'mochi'
+            cx: 320,
+            cy: 148,
+            nodes: [],
+            pointer: {
+                active: false,
+                x: 0,
+                y: 0,
+                startX: 0,
+                startY: 0,
+                vx: 0,
+                vy: 0,
+                mode: 'indent', // 'indent' (push in) or 'pull' (stretch outward)
+                holdTime: 0
+            },
+            faceOffset: { x: 0, y: 0, vx: 0, vy: 0 },
+            squishCount: 0,
+            chips: [
+                { rx: -0.45, ry: -0.25, r: 7.5 },
+                { rx: 0.48, ry: -0.20, r: 7 },
+                { rx: -0.36, ry: 0.34, r: 8 },
+                { rx: 0.38, ry: 0.30, r: 6.5 },
+                { rx: 0.02, ry: -0.44, r: 7 },
+                { rx: -0.12, ry: 0.12, r: 6 }
+            ],
+            quotes: [
+                "Hold & drag to knead the soft butter—hilang terus penat buat soalan lab report tadi! 🧈✨",
+                "Look how squishy! Macam awak bila tengah senyum 💕",
+                "Stretch & release! Setiap  buang jauh-jauh stress MedChem & Phytochem awak!",
+                "Cookies 💕 tetap Undefeated Best GF walaupun tengah penat study sampai 5 pagi!",
+                "Squish lagi! Saya janji lepas ni pujuk dengan betul, bukan sorry kosong ❤️",
+                "100% Cute, 100% Hardworking Princess! Selamat Hari Lahir yang ke-20 sayang 🎂"
+            ]
+        };
+
+        // Compute target rest shape coordinates for Butter (superellipse block), Cookie, or Mochi
+        function getRestShapePoint(index, total, type) {
+            const theta = (index / total) * Math.PI * 2;
+            const cos = Math.cos(theta);
+            const sin = Math.sin(theta);
+
+            if (type === 'butter') {
+                // Rounded rectangular butter block (superellipse n=3.4)
+                const a = 112;
+                const b = 64;
+                const n = 3.4;
+                const rx = Math.sign(cos) * a * Math.pow(Math.abs(cos), 2 / n);
+                const ry = Math.sign(sin) * b * Math.pow(Math.abs(sin), 2 / n);
+                return { x: rx, y: ry };
+            } else if (type === 'cookie') {
+                // Slightly organic round cookie dough
+                const ripple = 1 + 0.025 * Math.sin(theta * 7);
+                return {
+                    x: cos * 96 * ripple,
+                    y: sin * 76 * ripple
+                };
+            } else {
+                // Plump flat-bottomed pastel cloud mochi
+                const flattenBottom = sin > 0 ? 0.84 : 1.04;
+                const widenBottom = sin > 0 ? 1 + sin * 0.14 : 1;
+                return {
+                    x: cos * 102 * widenBottom,
+                    y: sin * 74 * flattenBottom
+                };
+            }
+        }
+
+        function initSoftBodyMesh(type) {
+            softSquishy.nodes = [];
+            for (let i = 0; i < NUM_NODES; i++) {
+                const pt = getRestShapePoint(i, NUM_NODES, type);
+                softSquishy.nodes.push({
+                    x: softSquishy.cx + pt.x,
+                    y: softSquishy.cy + pt.y,
+                    vx: 0,
+                    vy: 0,
+                    baseX: pt.x,
+                    baseY: pt.y
+                });
+            }
+        }
+        initSoftBodyMesh('butter');
+
+        function selectSquishyType(type) {
+            softSquishy.type = type;
+            sfx.playSquishBoing(type === 'mochi' ? 1.2 : type === 'cookie' ? 0.92 : 1.05);
+
+            for (let i = 0; i < NUM_NODES; i++) {
+                const pt = getRestShapePoint(i, NUM_NODES, type);
+                softSquishy.nodes[i].baseX = pt.x;
+                softSquishy.nodes[i].baseY = pt.y;
+                // Add outward jelly impulse on switch
+                softSquishy.nodes[i].vx += pt.x * 0.12;
+                softSquishy.nodes[i].vy -= Math.abs(pt.y) * 0.15;
+            }
+
+            ['butter', 'cookie', 'mochi'].forEach(t => {
+                const btn = document.getElementById(`squish-tab-${t}`);
+                if (t === type) {
+                    btn.className = "px-3.5 py-1.5 rounded-full text-xs font-bold bg-amber-300 text-slate-950 shadow transition-all cursor-pointer";
+                } else {
+                    btn.className = "px-3.5 py-1.5 rounded-full text-xs font-medium bg-slate-900/90 text-pastelblue border border-pastelblue/30 hover:border-amber-300 transition-all cursor-pointer";
+                }
+            });
+        }
+
+        function getCanvasCoords(clientX, clientY) {
+            const rect = squishCanvas.getBoundingClientRect();
+            return {
+                x: (clientX - rect.left) * (squishCanvas.width / rect.width),
+                y: (clientY - rect.top) * (squishCanvas.height / rect.height)
+            };
+        }
+
+        function handleSquishDown(clientX, clientY) {
+            const pos = getCanvasCoords(clientX, clientY);
+            softSquishy.pointer.active = true;
+            softSquishy.pointer.x = pos.x;
+            softSquishy.pointer.y = pos.y;
+            softSquishy.pointer.startX = pos.x;
+            softSquishy.pointer.startY = pos.y;
+            softSquishy.pointer.vx = 0;
+            softSquishy.pointer.vy = 0;
+            softSquishy.pointer.holdTime = 1;
+
+            sfx.playSquishBoing(0.95 + Math.random() * 0.2);
+
+            softSquishy.squishCount = Math.min(100, softSquishy.squishCount + 4);
+            document.getElementById('squish-counter').textContent = `${softSquishy.squishCount}%`;
+
+            const qIdx = Math.floor((softSquishy.squishCount / 8) % softSquishy.quotes.length);
+            document.getElementById('squishy-quote').textContent = `"${softSquishy.quotes[qIdx]}"`;
+
+            spawnSparkles(clientX, clientY, 12);
+        }
+
+        function handleSquishMove(clientX, clientY) {
+            if (!softSquishy.pointer.active) return;
+            const pos = getCanvasCoords(clientX, clientY);
+            softSquishy.pointer.vx = pos.x - softSquishy.pointer.x;
+            softSquishy.pointer.vy = pos.y - softSquishy.pointer.y;
+            softSquishy.pointer.x = pos.x;
+            softSquishy.pointer.y = pos.y;
+
+            if (Math.hypot(softSquishy.pointer.vx, softSquishy.pointer.vy) > 9) {
+                sfx.playSquishBoing(1.08);
+            }
+        }
+
+        function handleSquishUp() {
+            if (!softSquishy.pointer.active) return;
+            softSquishy.pointer.active = false;
+            sfx.playSquishBoing(1.22); // High elastic snap-back boing
+        }
+
+        squishCanvas.addEventListener('mousedown', (e) => handleSquishDown(e.clientX, e.clientY));
+        window.addEventListener('mousemove', (e) => handleSquishMove(e.clientX, e.clientY));
+        window.addEventListener('mouseup', handleSquishUp);
+
+        squishCanvas.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            const t = e.touches[0];
+            handleSquishDown(t.clientX, t.clientY);
+        }, { passive: false });
+
+        squishCanvas.addEventListener('touchmove', (e) => {
+            e.preventDefault();
+            const t = e.touches[0];
+            handleSquishMove(t.clientX, t.clientY);
+        }, { passive: false });
+
+        window.addEventListener('touchend', handleSquishUp);
+
+        function updateSoftBodyPhysics() {
+            const nodes = softSquishy.nodes;
+            const cx = softSquishy.cx;
+            const cy = softSquishy.cy;
+            const ptr = softSquishy.pointer;
+
+            if (ptr.active) {
+                ptr.holdTime++;
+            } else {
+                ptr.holdTime = 0;
+            }
+
+            // Calculate current centroid & approximate area for volume preservation
+            let avgX = 0, avgY = 0;
+            for (let i = 0; i < NUM_NODES; i++) {
+                avgX += nodes[i].x;
+                avgY += nodes[i].y;
+            }
+            avgX /= NUM_NODES;
+            avgY /= NUM_NODES;
+
+            // 1. Apply Rest-Shape Memory Springs & Finger Indentation / Drag Forces
+            for (let i = 0; i < NUM_NODES; i++) {
+                const n = nodes[i];
+                const targetX = cx + n.baseX;
+                const targetY = cy + n.baseY;
+
+                // Spring back to rest shape
+                n.vx += (targetX - n.x) * 0.14;
+                n.vy += (targetY - n.y) * 0.14;
+
+                // If user is touching/holding/dragging
+                if (ptr.active) {
+                    const dx = n.x - ptr.x;
+                    const dy = n.y - ptr.y;
+                    const dist = Math.hypot(dx, dy) + 0.001;
+                    const dragDist = Math.hypot(ptr.x - ptr.startX, ptr.y - ptr.startY);
+
+                    // Local finger indentation + kneading drag
+                    const influenceRadius = 115;
+                    if (dist < influenceRadius) {
+                        const falloff = Math.pow(1 - dist / influenceRadius, 1.6);
+
+                        // Pressing & holding pushes surface inward toward the core or downward like real dough/butter
+                        const toCenterX = cx - ptr.x;
+                        const toCenterY = cy - ptr.y;
+                        const centerDist = Math.hypot(toCenterX, toCenterY);
+
+                        if (dragDist < 22) {
+                            // Pure Hold / Poke: indent surface away from finger & squash down
+                            const pushX = (dx / dist) * 5.2 * falloff;
+                            const pushY = ((dy / dist) * 4.5 + 3.2) * falloff;
+                            n.vx += pushX;
+                            n.vy += pushY;
+                        } else {
+                            // Dragging / Stretching: pull nearby surface nodes smoothly with finger velocity & offset
+                            const pullX = (ptr.x - n.x) * 0.24 * falloff + ptr.vx * 0.45 * falloff;
+                            const pullY = (ptr.y - n.y) * 0.24 * falloff + ptr.vy * 0.45 * falloff;
+                            n.vx += pullX;
+                            n.vy += pullY;
+                        }
+                    } else {
+                        // Volume conservation: while pressing in one spot, other nodes bulge outward slightly
+                        const outNormX = n.baseX / 100;
+                        const outNormY = n.baseY / 100;
+                        const bulgeStrength = Math.min(2.4, 0.9 + ptr.holdTime * 0.03);
+                        n.vx += outNormX * bulgeStrength;
+                        n.vy += outNormY * bulgeStrength * 0.5;
+                    }
+                }
+            }
+
+            // 2. Neighbor-to-Neighbor Surface Tension Springs (keeps curve ultra-smooth & elastic)
+            for (let step = 0; step < 2; step++) {
+                for (let i = 0; i < NUM_NODES; i++) {
+                    const curr = nodes[i];
+                    const next = nodes[(i + 1) % NUM_NODES];
+                    const prev = nodes[(i - 1 + NUM_NODES) % NUM_NODES];
+
+                    const restNextX = next.baseX - curr.baseX;
+                    const restNextY = next.baseY - curr.baseY;
+                    const currNextX = next.x - curr.x;
+                    const currNextY = next.y - curr.y;
+
+                    const fx = (currNextX - restNextX) * 0.22;
+                    const fy = (currNextY - restNextY) * 0.22;
+
+                    curr.vx += fx;
+                    curr.vy += fy;
+                    next.vx -= fx;
+                    next.vy -= fy;
+                }
+            }
+
+            // 3. Integrate Velocities with Jelly Damping & Floor Collision
+            const floorY = 232;
+            for (let i = 0; i < NUM_NODES; i++) {
+                const n = nodes[i];
+                n.vx *= 0.80;
+                n.vy *= 0.80;
+                n.x += n.vx;
+                n.y += n.vy;
+
+                // Soft table floor contact so bottom flattens naturally when squished down
+                if (n.y > floorY) {
+                    n.y = floorY;
+                    n.vy *= -0.3;
+                    n.vx *= 0.85;
+                }
+            }
+
+            // Update cute face offset to follow the dough center & finger pull
+            const targetFaceX = (avgX - cx) * 0.55 + (ptr.active ? (ptr.x - cx) * 0.15 : 0);
+            const targetFaceY = (avgY - cy) * 0.55 + (ptr.active ? (ptr.y - cy) * 0.15 : 0);
+            softSquishy.faceOffset.vx = (softSquishy.faceOffset.vx + (targetFaceX - softSquishy.faceOffset.x) * 0.2) * 0.78;
+            softSquishy.faceOffset.vy = (softSquishy.faceOffset.vy + (targetFaceY - softSquishy.faceOffset.y) * 0.2) * 0.78;
+            softSquishy.faceOffset.x += softSquishy.faceOffset.vx;
+            softSquishy.faceOffset.y += softSquishy.faceOffset.vy;
+
+            ptr.vx *= 0.5;
+            ptr.vy *= 0.5;
+        }
+
+        function drawSmoothClosedBlob(ctx, nodes) {
+            const len = nodes.length;
+            ctx.beginPath();
+            const startMidX = (nodes[len - 1].x + nodes[0].x) / 2;
+            const startMidY = (nodes[len - 1].y + nodes[0].y) / 2;
+            ctx.moveTo(startMidX, startMidY);
+
+            for (let i = 0; i < len; i++) {
+                const p1 = nodes[i];
+                const p2 = nodes[(i + 1) % len];
+                const midX = (p1.x + p2.x) / 2;
+                const midY = (p1.y + p2.y) / 2;
+                ctx.quadraticCurveTo(p1.x, p1.y, midX, midY);
+            }
+            ctx.closePath();
+        }
+
+        function renderSoftSquishyToy() {
+            updateSoftBodyPhysics();
+            squishCtx.clearRect(0, 0, squishCanvas.width, squishCanvas.height);
+
+            const nodes = softSquishy.nodes;
+            const cx = softSquishy.cx;
+            const cy = softSquishy.cy;
+            const ptr = softSquishy.pointer;
+
+            // Compute dynamic horizontal width for realistic floor shadow
+            let minX = Infinity, maxX = -Infinity;
+            for (let i = 0; i < NUM_NODES; i++) {
+                if (nodes[i].x < minX) minX = nodes[i].x;
+                if (nodes[i].x > maxX) maxX = nodes[i].x;
+            }
+            const shadowHalfWidth = Math.max(70, (maxX - minX) * 0.48);
+
+            // 1. Dynamic Ambient Floor Shadow
+            squishCtx.save();
+            const shadowGrad = squishCtx.createRadialGradient(cx + softSquishy.faceOffset.x * 0.4, 236, 10, cx + softSquishy.faceOffset.x * 0.4, 236, shadowHalfWidth);
+            shadowGrad.addColorStop(0, 'rgba(0, 0, 0, 0.55)');
+            shadowGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+            squishCtx.fillStyle = shadowGrad;
+            squishCtx.beginPath();
+            squishCtx.ellipse(cx + softSquishy.faceOffset.x * 0.4, 236, shadowHalfWidth, 16, 0, 0, Math.PI * 2);
+            squishCtx.fill();
+            squishCtx.restore();
+
+            // 2. Draw Deformable Soft-Body Mesh
+            squishCtx.save();
+            drawSmoothClosedBlob(squishCtx, nodes);
+
+            if (softSquishy.type === 'butter') {
+                const grad = squishCtx.createLinearGradient(cx - 90, cy - 75, cx + 90, cy + 75);
+                grad.addColorStop(0, '#fef9c3');
+                grad.addColorStop(0.45, '#fde047');
+                grad.addColorStop(1, '#eab308');
+                squishCtx.fillStyle = grad;
+                squishCtx.strokeStyle = '#ca8a04';
+                squishCtx.lineWidth = 3.5;
+                squishCtx.fill();
+                squishCtx.stroke();
+
+                // Clip interior for 3D subsurface shading & glossy butter highlights
+                squishCtx.clip();
+
+                // Melting butter pat on top that moves with top nodes
+                const topNode = nodes[Math.floor(NUM_NODES * 0.75)];
+                squishCtx.fillStyle = 'rgba(254, 249, 195, 0.9)';
+                squishCtx.strokeStyle = 'rgba(202, 138, 4, 0.45)';
+                squishCtx.lineWidth = 2;
+                squishCtx.beginPath();
+                squishCtx.roundRect(topNode.x - 36, topNode.y + 8, 72, 22, 10);
+                squishCtx.fill();
+                squishCtx.stroke();
+
+            } else if (softSquishy.type === 'cookie') {
+                const grad = squishCtx.createRadialGradient(cx - 25, cy - 25, 12, cx, cy, 115);
+                grad.addColorStop(0, '#f5cba7');
+                grad.addColorStop(0.65, '#e59866');
+                grad.addColorStop(1, '#ba4a00');
+                squishCtx.fillStyle = grad;
+                squishCtx.strokeStyle = '#6e2c00';
+                squishCtx.lineWidth = 3.5;
+                squishCtx.fill();
+                squishCtx.stroke();
+
+                squishCtx.clip();
+
+                // Chocolate chips that shift naturally with the dough deformation
+                squishCtx.fillStyle = '#3e1f0d';
+                softSquishy.chips.forEach(chip => {
+                    const chipX = cx + chip.rx * 95 + softSquishy.faceOffset.x * 0.85;
+                    const chipY = cy + chip.ry * 75 + softSquishy.faceOffset.y * 0.85;
+                    squishCtx.beginPath();
+                    squishCtx.arc(chipX, chipY, chip.r, 0, Math.PI * 2);
+                    squishCtx.fill();
+                });
+
+            } else {
+                // Pastel Cloud Mochi
+                const grad = squishCtx.createRadialGradient(cx - 28, cy - 28, 12, cx, cy, 115);
+                grad.addColorStop(0, '#f0f9ff');
+                grad.addColorStop(0.55, '#b8d8f8');
+                grad.addColorStop(1, '#60a5fa');
+                squishCtx.fillStyle = grad;
+                squishCtx.strokeStyle = '#38bdf8';
+                squishCtx.lineWidth = 3.5;
+                squishCtx.fill();
+                squishCtx.stroke();
+
+                squishCtx.clip();
+            }
+
+            // Specular Glossy Top-Left Rim Highlight (Moves with top-left surface nodes)
+            const tlNode = nodes[Math.floor(NUM_NODES * 0.62)];
+            squishCtx.fillStyle = 'rgba(255, 255, 255, 0.52)';
+            squishCtx.beginPath();
+            squishCtx.ellipse(tlNode.x + 28, tlNode.y + 18, 26, 9, -0.35, 0, Math.PI * 2);
+            squishCtx.fill();
+
+            // Realistic Finger Indentation Dimple Shading while pressing/holding/dragging
+            if (ptr.active) {
+                const indentGrad = squishCtx.createRadialGradient(ptr.x, ptr.y, 4, ptr.x, ptr.y, 68);
+                indentGrad.addColorStop(0, 'rgba(15, 23, 42, 0.34)');
+                indentGrad.addColorStop(0.55, 'rgba(15, 23, 42, 0.12)');
+                indentGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+                squishCtx.fillStyle = indentGrad;
+                squishCtx.beginPath();
+                squishCtx.arc(ptr.x, ptr.y, 68, 0, Math.PI * 2);
+                squishCtx.fill();
+
+                // Soft specular ridge around the finger dent
+                squishCtx.strokeStyle = 'rgba(255, 255, 255, 0.45)';
+                squishCtx.lineWidth = 2;
+                squishCtx.beginPath();
+                squishCtx.arc(ptr.x, ptr.y, 26 + Math.sin(ptr.holdTime * 0.15) * 3, 0, Math.PI * 2);
+                squishCtx.stroke();
+            }
+
+            // 3. Kawaii Reactive Face (Squishes & Reacts to Hold / Drag)
+            const fx = cx + softSquishy.faceOffset.x;
+            const fy = cy + softSquishy.faceOffset.y + 6;
+
+            // Rosy Cheeks
+            squishCtx.fillStyle = 'rgba(244, 114, 182, 0.6)';
+            squishCtx.beginPath();
+            squishCtx.ellipse(fx - 36, fy + 7, 11, 6.5, 0, 0, Math.PI * 2);
+            squishCtx.ellipse(fx + 36, fy + 7, 11, 6.5, 0, 0, Math.PI * 2);
+            squishCtx.fill();
+
+            squishCtx.strokeStyle = '#1e293b';
+            squishCtx.fillStyle = '#1e293b';
+            squishCtx.lineWidth = 3.2;
+            squishCtx.lineCap = 'round';
+
+            if (ptr.active) {
+                // Tightly squished "> <" eyes while being poked or stretched
+                squishCtx.beginPath();
+                squishCtx.moveTo(fx - 29, fy - 7);
+                squishCtx.lineTo(fx - 19, fy - 1);
+                squishCtx.lineTo(fx - 29, fy + 5);
+
+                squishCtx.moveTo(fx + 29, fy - 7);
+                squishCtx.lineTo(fx + 19, fy - 1);
+                squishCtx.lineTo(fx + 29, fy + 5);
+                squishCtx.stroke();
+
+                // Cute squished 'o' or wavy mouth
+                squishCtx.fillStyle = '#f43f5e';
+                squishCtx.beginPath();
+                squishCtx.ellipse(fx, fy + 7, 5, 6.5, 0, 0, Math.PI * 2);
+                squishCtx.fill();
+            } else {
+                // Glossy relaxed eyes
+                squishCtx.beginPath();
+                squishCtx.arc(fx - 23, fy - 3, 5.8, 0, Math.PI * 2);
+                squishCtx.arc(fx + 23, fy - 3, 5.8, 0, Math.PI * 2);
+                squishCtx.fill();
+
+                squishCtx.fillStyle = '#ffffff';
+                squishCtx.beginPath();
+                squishCtx.arc(fx - 25, fy - 5, 2.2, 0, Math.PI * 2);
+                squishCtx.arc(fx + 21, fy - 5, 2.2, 0, Math.PI * 2);
+                squishCtx.fill();
+
+                // Cute 'w' cat smile
+                squishCtx.beginPath();
+                squishCtx.arc(fx - 5, fy + 4, 5, 0, Math.PI);
+                squishCtx.arc(fx + 5, fy + 4, 5, 0, Math.PI);
+                squishCtx.stroke();
+            }
+
+            squishCtx.restore();
+
+            requestAnimationFrame(renderSoftSquishyToy);
+        }
+        renderSoftSquishyToy();
+
+        function resetEntireVault() {
+            vaultState.bioProgress = 0;
+            vaultState.bioDone = false;
+            document.getElementById('bio-progress-fill').style.width = '0%';
+            document.getElementById('bio-icon').className = "fa-solid fa-fingerprint text-4xl sm:text-5xl text-pastelblue";
+            document.getElementById('bio-pad-label').textContent = "HOLD TO SCAN";
+
+            vaultState.cryptexDay = 1;
+            vaultState.cryptexMonth = 8;
+            vaultState.cryptexDone = false;
+            document.getElementById('cryptex-day-val').textContent = "01";
+            document.getElementById('cryptex-month-val').textContent = "08";
+
+            vaultState.waveDone = false;
+            vaultState.waveValue = 18;
+            document.getElementById('harmonic-slider').value = 18;
+
+            vaultState.cipherDone = false;
+            vaultState.keyTurned = false;
+            vaultState.candleBlown = false;
+            document.getElementById('golden-key-icon').classList.remove('rotate-90', 'text-emerald-300');
+            document.getElementById('vault-candle-flame').classList.remove('hidden');
+            document.getElementById('candle-ritual-box').classList.add('opacity-35', 'pointer-events-none');
+            document.getElementById('override-ring-progress').style.strokeDashoffset = 527.78;
+
+            for (let i = 1; i <= 5; i++) {
+                document.getElementById(`bolt-icon-${i}`).className = "fa-solid fa-lock text-slate-400";
+            }
+
+            jumpToLock(5);
+        }
+
+        /******************************************************************
+         * 10. DIRECTOR'S STUDIO CUSTOMIZER
+         ******************************************************************/
+        function toggleDirectorModal() {
+            const m = document.getElementById('director-modal');
+            if (m.classList.contains('hidden')) {
+                m.classList.remove('hidden');
+                m.classList.add('flex');
+            } else {
+                m.classList.add('hidden');
+                m.classList.remove('flex');
+            }
+        }
+
+        function uploadVaultPhoto(event, idx) {
+            const file = event.target.files[0];
+            if (!file) return;
+            document.getElementById(`vault-img-${idx}`).src = URL.createObjectURL(file);
+        }
+
+        function saveDirectorChanges() {
+            const name = document.getElementById('edit-name').value.trim() || "Farisha Farhana";
+            const sig = document.getElementById('edit-sig').value.trim() || "Akid ❤️";
+            const letter = document.getElementById('edit-letter').value;
+
+            document.querySelectorAll('.recipient-name-display').forEach(el => el.textContent = name.toUpperCase());
+            document.getElementById('final-letter-salutation').textContent = `To My Dearest ${name},`;
+            document.getElementById('final-letter-signature').textContent = sig;
+            document.getElementById('final-letter-body').textContent = letter;
+
+            for (let i = 1; i <= 3; i++) {
+                const cap = document.getElementById(`edit-cap-${i}`).value;
+                document.getElementById(`vault-cap-${i}`).textContent = `"${cap}"`;
+            }
+            toggleDirectorModal();
+        }
+
+        /******************************************************************
+         * 11. BACKGROUND STARLIGHT & GOLDEN SPARKLE PARTICLE ENGINE
+         ******************************************************************/
+        const canvas = document.getElementById('vault-canvas');
+        const ctx = canvas.getContext('2d');
+        let bgStars = [];
+        let particles = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            bgStars = [];
+            const count = Math.min(140, Math.floor((canvas.width * canvas.height) / 9000));
+            for (let i = 0; i < count; i++) {
+                bgStars.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    r: Math.random() * 1.6 + 0.4,
+                    phase: Math.random() * Math.PI * 2,
+                    speed: Math.random() * 0.02 + 0.005,
+                    color: Math.random() > 0.5 ? '#b8d8f8' : '#f4d068'
+                });
+            }
+        }
+        window.addEventListener('resize', resizeCanvas);
+
+        function spawnSparkles(x, y, count = 40) {
+            const colors = ['#b8d8f8', '#f4d068', '#e5b887', '#ffffff'];
+            for (let i = 0; i < count; i++) {
+                const angle = Math.random() * Math.PI * 2;
+                const speed = Math.random() * 5 + 1.2;
+                particles.push({
+                    x,
+                    y,
+                    vx: Math.cos(angle) * speed,
+                    vy: Math.sin(angle) * speed,
+                    r: Math.random() * 2.6 + 1,
+                    alpha: 1,
+                    decay: Math.random() * 0.018 + 0.01,
+                    color: colors[Math.floor(Math.random() * colors.length)]
+                });
+            }
+        }
+
+        function triggerCelebrationBurst() {
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => {
+                    const rx = canvas.width * (0.2 + Math.random() * 0.6);
+                    const ry = canvas.height * (0.2 + Math.random() * 0.5);
+                    spawnSparkles(rx, ry, 55);
+                }, i * 220);
+            }
+        }
+
+        function animateVaultCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            bgStars.forEach(s => {
+                s.phase += s.speed;
+                ctx.save();
+                ctx.globalAlpha = 0.3 + 0.5 * Math.sin(s.phase);
+                ctx.fillStyle = s.color;
+                ctx.beginPath();
+                ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+            });
+
+            for (let i = particles.length - 1; i >= 0; i--) {
+                const p = particles[i];
+                p.x += p.vx;
+                p.y += p.vy;
+                p.vy += 0.035;
+                p.alpha -= p.decay;
+                if (p.alpha <= 0) {
+                    particles.splice(i, 1);
+                    continue;
+                }
+                ctx.save();
+                ctx.globalAlpha = p.alpha;
+                ctx.fillStyle = p.color;
+                ctx.shadowColor = p.color;
+                ctx.shadowBlur = 8;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+            }
+
+            requestAnimationFrame(animateVaultCanvas);
+        }
+
+        window.onload = function () {
+            resizeCanvas();
+            animateVaultCanvas();
+        };
+    </script>
+</body>
+</html>
